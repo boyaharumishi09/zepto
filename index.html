@@ -1,218 +1,85 @@
----
-title: "Zepto.js: the aerogel-weight jQuery-compatible JavaScript library"
-layout: default
-description: >
-  The aerogel-weight jQuery-compatible JavaScript library
-version: 1.1.3
-github_url: https://github.com/madrobby/zepto
----
+<!DOCTYPE html>
+<html>
 
-<div id="menu_icon">🍔</div>
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Zepto : Zepto.js is a minimalist JavaScript library for modern browsers, with a jQuery-compatible API" />
 
-<aside id="sidebar" class="interface">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-  <a class="toc_title" href="#">
-    Zepto.js <span class="version">({{ page.version }})</span>
-  </a>
+    <title>Zepto</title>
+  </head>
 
-  <ul class=toc_section>
-    <li><a href="#download">Download</a></li>
-    <li><a href="#browsers">Browser support</a></li>
-    <li><a href="#modules">Modules</a></li>
-    <li><a href="#changelog">Change Log</a></li>
-    <li><a href="#thanks">Acknowledgements</a></li>
-  </ul>
+  <body>
 
-  <hr>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/boyaharumishi09/zepto">View on GitHub</a>
 
-  <a class=toc_title href="#core">Core</a>
-  {% assign posts = site.categories.core %}
-  {% include methods_sidebar.html %}
+          <h1 id="project_title">Zepto</h1>
+          <h2 id="project_tagline">Zepto.js is a minimalist JavaScript library for modern browsers, with a jQuery-compatible API</h2>
 
-  <a class=toc_title href="#detect">Detect</a>
-  {% assign posts = site.categories.detect %}
-  {% include methods_sidebar.html %}
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/boyaharumishi09/zepto/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/boyaharumishi09/zepto/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
 
-  <a class=toc_title href="#event">Event</a>
-  {% assign posts = site.categories.event %}
-  {% include methods_sidebar.html %}
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="zeptojs--a-minimalist-javascript-library" class="anchor" href="#zeptojs--a-minimalist-javascript-library"><span class="octicon octicon-link"></span></a>Zepto.js – a minimalist JavaScript library</h1>
 
-  <a class=toc_title href="#ajax">Ajax</a>
-  {% assign posts = site.categories.ajax %}
-  {% include methods_sidebar.html %}
+<p>Zepto is a minimalist JavaScript library for modern browsers with a
+largely jQuery-compatible API. If you use jQuery, you already know how to use Zepto.</p>
 
-  <a class=toc_title href="#form">Form</a>
-  {% assign posts = site.categories.form %}
-  {% include methods_sidebar.html %}
+<p>See <a href="http://zeptojs.com">zeptojs.com</a> for an extended introduction, downloads
+and documentation.</p>
 
-  <a class=toc_title href="#fx">Effects</a>
-  {% assign posts = site.categories.fx %}
-  {% include methods_sidebar.html %}
+<p>Zepto.js is licensed under the terms of the MIT License.</p>
 
-  <a class=toc_title href="#touch">Touch</a>
-  {% assign posts = site.categories.touch %}
-  {% include methods_sidebar.html %}
-</aside>
+<p>Want to give us money or a tip? Don't.
+Instead please donate to <a href="http://charitywater.org/">charity: water</a>.</p>
 
-<div class="container">
+<h2>
+<a name="building" class="anchor" href="#building"><span class="octicon octicon-link"></span></a>Building</h2>
 
-  <header>
-  <h1><img src=logo.png alt=Zepto.js></h1>
+<p><a href="http://travis-ci.org/madrobby/zepto"><img src="https://secure.travis-ci.org/madrobby/zepto.png?branch=master" alt="Build Status"></a></p>
 
-  <p>
-    <b>Zepto</b> is a minimalist <b>JavaScript library
-    for modern browsers</b> with a largely
-    <b>jQuery-compatible API</b>.
+<p>The official site offers a download of the default distribution of Zepto. This
+is good for starting out. However, at some point you might want to add some
+optional modules and remove some of the default ones you don't need, to keep the
+size at a minimum. That's when you need to check out Zepto's source code and use
+the build commands.</p>
 
-    <em>If you use jQuery, you already know how to use Zepto.</em>
-  </p>
+<p>You will need Node.js installed on your system.</p>
 
-  <div id=tour>
-    <img src=data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=>
-  </div>
+<div class="highlight highlight-sh"><pre><span class="nv">$ </span>npm install
+<span class="nv">$ </span>npm run-script dist
 
-  <p>
-    While 100% jQuery coverage is not a design goal, the <b>APIs provided
-    match their jQuery counterparts</b>. The goal is to have a ~5-10k modular
-    library that <b>downloads and executes fast</b>, with a
-    <b>familiar and versatile API</b>,
-    so you can <b>concentrate on getting stuff done</b>.
-  </p>
+<span class="c"># do a custom build</span>
+<span class="nv">$ MODULES</span><span class="o">=</span><span class="s2">"zepto event data"</span> npm run-script dist
+</pre></div>
 
-  <p>
-    Zepto is open source software and is released under the
-    developer and business-friendly
-    <a href="{{ page.github_url }}/blob/master/MIT-LICENSE">MIT license</a>.
-  </p>
+<p>The resulting files are:</p>
 
-  <p>
-    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://zeptojs.com/" data-text="Zepto.js, a jQuery-compatible micro-library for modern browsers" data-count="horizontal" data-via="zeptojs" data-related="thomasfuchs">Tweet</a>
-  </p>
+<ol>
+<li><code>dist/zepto.js</code></li>
+<li><code>dist/zepto.min.js</code></li>
+</ol><p>If you install CoffeeScript globally, you can run <code>make</code> directly:</p>
 
-  </header>
+<div class="highlight highlight-sh"><pre><span class="nv">$ </span>coffee make dist
+<span class="nv">$ MODULES</span><span class="o">=</span><span class="s2">"zepto event data ..."</span> ./make dist
+</pre></div>
 
-  <h3 id=download>Download Zepto</h3>
+<h2>
+<a name="zepto-modules" class="anchor" href="#zepto-modules"><span class="octicon octicon-link"></span></a>Zepto modules</h2>
 
-  <p>
-    The default build includes the following modules:<br>
-    <em>Core, Ajax, Event, Form, IE</em>.
-  </p>
-
-  <p class=important>
-    Zepto v1.0 used to bundle Effects, iOS3, and Detect modules in the default build.
-    <br>
-    See below for
-    <a href="#modules">optional modules</a>.
-  </p>
-
-  <ul class=downloads>
-    <li>
-      <a href="zepto.js" class="download">zepto.js v{{ page.version }} (for development)</a>
-      – <i>54.6k uncompressed, lots of comments</i>
-    </li>
-    <li>
-      <a href="zepto.min.js" class="download">zepto.min.js v{{ page.version }} (for production)</a>
-      – <i>9.2k when gzipped</i>
-    </li>
-  </ul>
-
-  <p>
-    Or <b><a href="{{ page.github_url }}">grab the latest version on GitHub</a></b>.
-  </p>
-
-  <ul class=downloads>
-    <li>
-      <iframe src="http://ghbtns.com/github-btn.html?user=madrobby&amp;repo=zepto&amp;type=watch&amp;count=true"
-      allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
-      <iframe src="http://ghbtns.com/github-btn.html?user=madrobby&amp;repo=zepto&amp;type=fork&amp;count=true"
-      allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
-    </li>
-  </ul>
-
-  <p>
-    Include Zepto with a script tag near the end of your page:
-  </p>
-
-{% highlight html %}
-...
-<script src=zepto.min.js></script>
-</body>
-</html>
-{% endhighlight %}
-
-  <p class=compat>
-    Zepto will only set the <code>$</code> global to itself if it is
-    not yet defined. There is no <code>Zepto.noConflict</code> method.
-  </p>
-
-  <p>
-    <b>If you need to support older browers, like Internet Explorer 9
-    and lower, you can fall back to jQuery 1.x.</b>
-  </p>
-
-  <h3 id=browsers>Browser support</h3>
-
-  <h4>Primary (100% support)</h4>
-  <ul>
-    <li>Safari 6+ (Mac)</li>
-    <li>Chrome 30+ (Windows, Mac, Android, iOS, Linux, Chrome OS)</li>
-    <li>Firefox 24+ (Windows, Mac, Android, Linux, Firefox OS)</li>
-    <li>iOS 5+ Safari</li>
-    <li>Android 2.3+ Browser</li>
-    <li>Internet Explorer 10+ (Windows, Windows Phone)</li>
-  </ul>
-
-  <h4>Secondary targets (fully or mostly supported)</h4>
-  <ul>
-    <li>iOS 3+ Safari</li>
-    <li>Chrome &lt;30</li>
-    <li>Firefox 4+</li>
-    <li>Safari &lt;6</li>
-    <li>Android Browser 2.2</li>
-    <li>Opera 10+</li>
-    <li>webOS 1.4.5+ Browser</li>
-    <li>BlackBerry Tablet OS 1.0.7+ Browser</li>
-    <li>Amazon Silk 1.0+</li>
-    <li>Other WebKit-based browsers/runtimes</li>
-  </ul>
-
-  <p>
-    <em>Note that some optional features of Zepto specifically target
-    mobile browsers; as the original project goal was to specifically
-    provide a leaner alternative to jQuery for the mobile web.</em>
-  </p>
-
-  <p>
-    Zepto is a good choice for browser extensions (for Safari, Chrome and
-    Firefox) and to develop HTML-based views within native app frameworks,
-    such as <a href="http://phonegap.com/">PhoneGap</a>.
-  <p>
-
-  <p>
-    In short, Zepto is expected to work in every modern browser
-    and browser-like environment. Zepto doesn't support
-    old Internet Explorer versions (&lt;10).
-  </p>
-
-  <h3>Manually building Zepto</h3>
-
-  <p>
-    <code>zepto.js</code> and <code>zepto.min.js</code> provided above can be
-    used as-is. However, for best efficiency and customizability, run the build
-    system that comes with Zepto's source code.
-    It allows you to select modules, run tests,
-    use <a href="https://github.com/mishoo/UglifyJS">UglifyJS</a> to
-    minify your custom build, and gives you an estimate on the compression
-    that is achievable when <code>zepto.min.js</code> is served gzipped.
-  </p>
-
-  <p>
-    Refer to <a href="{{ page.github_url }}#readme">the README</a>
-    for instructions on how to build Zepto, including running the tests and
-    contributing patches.
-  </p>
-
-  <h3 id=modules>Zepto modules</h3>
+<p>Zepto modules are individual files in the "src/" directory.</p>
 
 <table>
 <thead><tr>
@@ -220,45 +87,43 @@ github_url: https://github.com/madrobby/zepto
 </tr></thead>
 <tbody>
 <tr>
-<th><a href="https://github.com/madrobby/zepto/blob/master/src/zepto.js#files">zepto</a></th>
+<th><a href="src/zepto.js#files">zepto</a></th>
     <td>✔</td>
     <td>Core module; contains most methods</td>
   </tr>
 <tr>
-<th><a href="https://github.com/madrobby/zepto/blob/master/src/event.js#files">event</a></th>
+<th><a href="src/event.js#files">event</a></th>
     <td>✔</td>
     <td>Event handling via <code>on()</code> &amp; <code>off()</code>
 </td>
   </tr>
 <tr>
-<th><a href="https://github.com/madrobby/zepto/blob/master/src/ajax.js#files">ajax</a></th>
+<th><a href="src/ajax.js#files">ajax</a></th>
     <td>✔</td>
     <td>XMLHttpRequest and JSONP functionality</td>
   </tr>
 <tr>
-<th><a href="https://github.com/madrobby/zepto/blob/master/src/form.js#files">form</a></th>
+<th><a href="src/form.js#files">form</a></th>
     <td>✔</td>
     <td>Serialize &amp; submit web forms</td>
   </tr>
 <tr>
-<th><a href="https://github.com/madrobby/zepto/blob/master/src/ie.js#files">ie</a></th>
+<th><a href="src/ie.js#files">ie</a></th>
     <td>✔</td>
-    <td>
-      Add support for Internet Explorer 10+ on desktop and Windows Phone 8.
-    </td>
+    <td>Support for Internet Explorer 10+ on the desktop and Windows Phone 8</td>
   </tr>
 <tr>
-<th><a href="https://github.com/madrobby/zepto/blob/master/src/detect.js#files">detect</a></th>
+<th><a href="src/detect.js#files">detect</a></th>
     <td></td>
     <td>Provides <code>$.os</code> and <code>$.browser</code> information</td>
   </tr>
 <tr>
-<th><a href="https://github.com/madrobby/zepto/blob/master/src/fx.js#files">fx</a></th>
+<th><a href="src/fx.js#files">fx</a></th>
     <td></td>
     <td>The <code>animate()</code> method</td>
   </tr>
 <tr>
-<th><a href="https://github.com/madrobby/zepto/blob/master/src/fx_methods.js#files">fx_methods</a></th>
+<th><a href="src/fx_methods.js#files">fx_methods</a></th>
     <td></td>
     <td>
       Animated <code>show</code>, <code>hide</code>, <code>toggle</code>,
@@ -266,7 +131,7 @@ github_url: https://github.com/madrobby/zepto
     </td>
   </tr>
 <tr>
-<th><a href="https://github.com/madrobby/zepto/blob/master/src/assets.js#files">assets</a></th>
+<th><a href="src/assets.js#files">assets</a></th>
     <td></td>
     <td>
       Experimental support for cleaning up iOS memory after removing
@@ -274,7 +139,7 @@ github_url: https://github.com/madrobby/zepto
     </td>
   </tr>
 <tr>
-<th><a href="https://github.com/madrobby/zepto/blob/master/src/data.js#files">data</a></th>
+<th><a href="src/data.js#files">data</a></th>
     <td></td>
     <td>
       A full-blown <code>data()</code> method, capable of storing arbitrary
@@ -282,25 +147,22 @@ github_url: https://github.com/madrobby/zepto
     </td>
   </tr>
 <tr>
-<th><a href="https://github.com/madrobby/zepto/blob/master/src/deferred.js#files">deferred</a></th>
+<th><a href="src/deferred.js#files">deferred</a></th>
     <td></td>
     <td>
       Provides <code>$.Deferred</code> promises API.
       Depends on the "callbacks" module.
-      <br>
-      When included, <a href="#$.ajax"><code>$.ajax()</code></a> supports a
-      promise interface for chaining callbacks.
     </td>
   </tr>
 <tr>
-<th><a href="https://github.com/madrobby/zepto/blob/master/src/callbacks.js#files">callbacks</a></th>
+<th><a href="src/callbacks.js#files">callbacks</a></th>
     <td></td>
     <td>
       Provides <code>$.Callbacks</code> for use in "deferred" module.
     </td>
   </tr>
 <tr>
-<th><a href="https://github.com/madrobby/zepto/blob/master/src/selector.js#files">selector</a></th>
+<th><a href="src/selector.js#files">selector</a></th>
     <td></td>
     <td>
       Experimental <a href="http://api.jquery.com/category/selectors/jquery-selector-extensions/">jQuery
@@ -309,7 +171,7 @@ github_url: https://github.com/madrobby/zepto
     </td>
   </tr>
 <tr>
-<th><a href="https://github.com/madrobby/zepto/blob/master/src/touch.js#files">touch</a></th>
+<th><a href="src/touch.js#files">touch</a></th>
     <td></td>
     <td>
       Fires tap– and swipe–related events on touch devices. This works with both
@@ -317,17 +179,17 @@ github_url: https://github.com/madrobby/zepto
     </td>
   </tr>
 <tr>
-<th><a href="https://github.com/madrobby/zepto/blob/master/src/gesture.js#files">gesture</a></th>
+<th><a href="src/gesture.js#files">gesture</a></th>
     <td></td>
     <td>Fires pinch gesture events on touch devices</td>
   </tr>
 <tr>
-<th><a href="https://github.com/madrobby/zepto/blob/master/src/stack.js#files">stack</a></th>
+<th><a href="src/stack.js#files">stack</a></th>
     <td></td>
     <td>Provides <code>andSelf</code> &amp; <code>end()</code> chaining methods</td>
   </tr>
 <tr>
-<th><a href="https://github.com/madrobby/zepto/blob/master/src/ios3.js#files">ios3</a></th>
+<th><a href="src/ios3.js#files">ios3</a></th>
     <td></td>
     <td>
       String.prototype.trim and Array.prototype.reduce methods
@@ -335,230 +197,71 @@ github_url: https://github.com/madrobby/zepto
     </td>
   </tr>
 </tbody>
-</table>
+</table><h2>
+<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
 
-  <h3>Creating plug-ins</h3>
+<p>Please read our <a href="https://github.com/madrobby/zepto/blob/master/CONTRIBUTING.md">contribution guidelines</a>
+for information on how to contribute.</p>
 
-  <p>
-    Plugins can be written by adding methods as properties of
-    <a href="#$.fn"><code>$.fn</code></a>:
-  </p>
+<p>Get in touch:</p>
 
-{% highlight js %}
-;(function($){
-  $.extend($.fn, {
-    foo: function(){
-      // `this` refers to the current Zepto collection.
-      // When possible, return the Zepto collection to allow chaining.
-      return this.html('bar')
-    }
-  })
-})(Zepto)
-{% endhighlight %}
+<ul>
+<li>@<a href="http://twitter.com/zeptojs">zeptojs</a>
+</li>
+</ul><h3>
+<a name="write-documentation" class="anchor" href="#write-documentation"><span class="octicon octicon-link"></span></a>Write documentation</h3>
 
-  <p>
-    To get started with plug-in development, take a look at the
-    <a href="{{ page.github_url }}/blob/master/src/zepto.js">source of Zepto's core module</a>,
-    and be sure to read the
-    <a href="{{ page.github_url }}#code-style-guidelines">coding style guidelines</a>.
-  </p>
+<p>Zepto docs are written in Markdown and live in the <a href="https://github.com/madrobby/zepto/tree/gh-pages#readme">"gh-pages" branch</a>.
+They are published on <a href="http://zeptojs.com">zeptojs.com</a>.</p>
 
-  <section id=documentation>
+<p>You can use GitHub's web interface to make quick changes to documentation for
+specific Zepto features
+(<a href="https://github.com/madrobby/zepto/blob/gh-pages/ajax/_posts/1900-01-01-Z-ajaxSettings.md">example: ajaxSettings</a>).
+This will submit a pull request to us that we can review.</p>
 
-    <hr>
-    <h2 id="core">Core methods</h2>
-    {% assign posts = site.categories.core %}
-    {% include methods_full.html %}
+<h3>
+<a name="report-a-bug" class="anchor" href="#report-a-bug"><span class="octicon octicon-link"></span></a>Report a bug</h3>
 
-    <hr>
-    <h2 id="detect">Detect methods</h2>
-    {% assign posts = site.categories.detect %}
-    {% include methods_full.html %}
+<ol>
+<li>Check if the bug is already fixed in the <a href="https://github.com/madrobby/zepto/commits/master">master branch</a> since the
+last release.</li>
+<li>Check <a href="https://github.com/madrobby/zepto/issues">existing issues</a>. Open a new one, including exact browser &amp;
+platform information. For better formatting of your report, see
+<a href="http://github.github.com/github-flavored-markdown/">GitHub-flavored Markdown</a>.</li>
+</ol><h3>
+<a name="running-tests" class="anchor" href="#running-tests"><span class="octicon octicon-link"></span></a>Running tests</h3>
 
-    <hr>
-    <h2 id="event">Event handling</h2>
-    {% assign posts = site.categories.event %}
-    {% include methods_full.html %}
+<p>You will need to install <a href="http://code.google.com/p/phantomjs/wiki/Installation">PhantomJS</a>. On OS X, that's easy:</p>
 
-    <hr>
-    <h2 id="ajax">Ajax requests</h2>
-    {% assign posts = site.categories.ajax %}
-    {% include methods_full.html %}
+<div class="highlight highlight-sh"><pre><span class="nv">$ </span>brew install phantomjs
+</pre></div>
 
-    <hr>
-    <h2 id="form">Form methods</h2>
-    {% assign posts = site.categories.form %}
-    {% include methods_full.html %}
+<p>To run the automated tests:</p>
 
-    <hr>
-    <h2 id="fx">Effects</h2>
-    {% assign posts = site.categories.fx %}
-    {% include methods_full.html %}
+<div class="highlight highlight-sh"><pre><span class="nv">$ </span>npm <span class="nb">test</span>
+</pre></div>
 
-    <hr>
-    <h2 id="touch">Touch</h2>
-    {% assign posts = site.categories.touch %}
-    {% include methods_full.html %}
+<p>To run a test server, which you can hit with your browsers and devices:</p>
 
-    <hr>
-    <h2 id="changelog">Change Log</h2>
+<div class="highlight highlight-sh"><pre><span class="nv">$ </span>npm start
+</pre></div>
 
-    {% for change in site.categories.changelog %}
-    <article class=changelog id="changelog-{{ change.title }}">
-      <h3>
-        {{ change.title }}
-        <small>&mdash; <i>{{ change.date | date_to_string }}</i>
-        {% if change.diff %}&mdash; <a href="{{ page.github_url }}/compare/{{ change.diff }}">diff</a>{% endif %}
-        </small>
-      </h3>
-      {{ change.content }}
-    </article>
-    {% endfor %}
+<p>Go to <code>http://your-ip-address:3000/</code> on your browser and follow the
+instructions. For your convenience test failures and exceptions will be
+reported to the the console you started the test server in (as well as
+the browser console if available).</p>
+      </section>
+    </div>
 
-    <hr>
-    <h2 id=thanks>Acknowledgements &amp; Thanks</h2>
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Zepto maintained by <a href="https://github.com/boyaharumishi09">boyaharumishi09</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
 
-    <p>
-      A big <b>Thank-You</b> goes out to all of our
-      <a href="https://github.com/madrobby/zepto/contributors">awesome Zepto.js contributors</a>.
-      May you all forever bask in glory.
-    </p>
+    
 
-    <p>
-      The Zepto API is based on <a href="http://jquery.com/">jQuery's Core API</a>, which
-      is released under the <a href="https://github.com/jquery/jquery/blob/master/MIT-LICENSE.txt">MIT license</a>.
-    </p>
-
-    <p>
-      This documentation is based on the layout of the
-      <a href="https://github.com/documentcloud/backbone/">Backbone.js</a>
-      documentation, which is released under the
-      <a href="https://github.com/documentcloud/backbone/blob/master/LICENSE">MIT license</a>.
-    </p>
-
-    <p>
-      <small>
-        &copy; 2010-2014 Thomas Fuchs, <a href="http://letsfreckle.com">Freckle Online Time Tracking</a><br>
-        Zepto and this documentation is released under the terms of the <a href="{{ page.github_url }}/blob/master/MIT-LICENSE">MIT license</a>.
-      </small>
-    </p>
-
-  </section>
-
-</div>
-
-<script src="zepto-docs.min.js"></script>
-
-<script>
-$(function(){
-  var reflowTimeout,
-    tour = $('#tour'), tourSlides = tour.children(),
-    tourSlide = 0, tourSlidesTotal = 5
-
-  function injectScript(src) {
-    var s = document.createElement('script')
-    s.src = src; s.async = true
-    $('script').first().before(s)
-  }
-
-  // Reflow all elements on the page. <david@14islands.com>
-  function reflowFixedPositions() {
-    var docStyle = document.documentElement.style
-    docStyle.paddingRight = '1px'
-    setTimeout(function(){ docStyle.paddingRight = '' }, 0)
-  }
-
-  $('.signature code').html(function(i, html){
-    return html
-      .replace(/\[([^\[]+)\]$/mg, '<span class=version>$1+</span>')
-      .replace(/\)([^()]+)$/mg, ') <span class=return>$1</span>')
-  })
-
-  $(document).on('mouseover', 'span.version', function(){
-    var el = $(this)
-    if (!el.attr('title'))
-      el.attr('title', "This feature is only available in Zepto " + el.text())
-  })
-
-  if ($.os.ios || /\bMac.+\bSafari\b/.test(navigator.userAgent))
-    $(document.body).addClass('emoji-enabled')
-
-  // don't follow links when the sidebar is tap-enabled
-  $('#sidebar').on('click', 'a', function(e){
-    return !$('body').hasClass('navigating')
-  })
-
-  $('#sidebar').on('tap', 'a', function(e){
-    location.href = this.href;
-
-    closeMenu()
-    setTimeout(function(){
-      // fixes sidebar becoming unscrollable in Safari 6
-      reflowFixedPositions()
-    }, 10)
-    return false
-  })
-
-  $(window).on('scroll', function(){
-    if(reflowTimeout) clearTimeout(reflowTimeout)
-    reflowTimeout = setTimeout(reflowFixedPositions, 200)
-  })
-
-  function closeMenu(){
-    if ($('body').hasClass('navigating')) {
-      $('body').removeClass('navigating')
-      setTimeout(function(){
-        $('#sidebar').css('display','none')
-      }, 350)
-    }
-  }
-
-  // show/hide menu on mobile
-  $('#menu_icon').on('tap', function(){
-    if ($('body').hasClass('navigating')) {
-      closeMenu()
-    } else {
-      $('#sidebar').css('display','block')
-      $('#sidebar')[0].offsetLeft // force render
-      $('body').addClass('navigating')
-    }
-    return false
-  })
-
-  // change the title of the page so bookmarks have a better default
-  if ($.os.ios || $.os.android)
-    document.title = 'Zepto Docs'
-
-  // For retina screens, use a hi-res version of the tour image.
-  // We're swapping this out on-demand (not an ideal solution)
-  // to avoid rendering bugs on iOS.
-  $('#tour > img')[0].src =
-    ('devicePixelRatio' in window && devicePixelRatio > 1) ?
-    'intro2x.jpg' : 'intro.jpg'
-
-  function advanceTourSlide(delta){
-    tourSlide = (tourSlide + delta + tourSlidesTotal) % tourSlidesTotal
-    var offset = tourSlide * tour.width()
-    tourSlides.animate({ translateX: -offset + 'px' })
-  }
-
-  tour.on('click swipeLeft', function(){ advanceTourSlide(+1) })
-      .on('swipeRight', function(){ advanceTourSlide(-1) })
-
-  if (/^localhost|\.(dev|local)$/.test(location.hostname) && $.os.iphone && !/Simulator/.test(navigator.userAgent))
-    injectScript('livereload.js')
-
-  if (/\.com$/.test(location.hostname))
-    injectScript('http://platform.twitter.com/widgets.js')
-})
-</script>
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-37896092-14', 'zeptojs.com');
-  ga('send', 'pageview');
-</script>
+  </body>
+</html>
